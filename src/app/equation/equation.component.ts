@@ -29,6 +29,16 @@ export class EquationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.mathForm.statusChanges.subscribe((value) => {
+      if (value === 'INVALID') {
+        return;
+      }
+      this.mathForm.patchValue({
+        a: this.randomNumber(),
+        b: this.randomNumber(),
+        answer: ''
+      });
+    });
   }
 
   randomNumber() {
