@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MathValidators} from '../math-validators';
+import {delay} from 'rxjs/operators';
 
 @Component({
   selector: 'app-equation',
@@ -29,7 +30,9 @@ export class EquationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mathForm.statusChanges.subscribe((value) => {
+    this.mathForm.statusChanges.pipe(
+      delay(500)
+    ).subscribe((value) => {
       if (value === 'INVALID') {
         return;
       }
