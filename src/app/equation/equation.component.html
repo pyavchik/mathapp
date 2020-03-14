@@ -1,7 +1,11 @@
 <form [formGroup]="mathForm">
-  {{a}} + {{b}} =
+  <div class="vision">
+    {{a}} + {{b}} =
+  </div>
   <input formControlName="answer">
 </form>
 
-{{ secondsPerSolution | number: '1.1-3' }}
+<div class="stats">
+  {{ secondsPerSolution | number: '1.1-3' }}
+</div>
 
